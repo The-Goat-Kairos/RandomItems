@@ -1,5 +1,6 @@
 package com.kairos.randomItems;
 
+import com.kairos.randomItems.commands.Clock;
 import com.kairos.randomItems.commands.CommandManager;
 import com.kairos.randomItems.commands.StartEvent;
 import com.kairos.randomItems.commands.StopEvent;
@@ -14,6 +15,7 @@ public final class RandomItems extends JavaPlugin {
 
         StartEvent.setItemGiver(itemGiver);
         StopEvent.setItemGiver(itemGiver);
+        Clock.setItemGiver(itemGiver);
 
         CommandManager manager = new CommandManager(this); //Command Manager
         manager.registerCommands();
