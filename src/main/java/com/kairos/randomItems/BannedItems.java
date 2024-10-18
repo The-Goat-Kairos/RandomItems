@@ -27,25 +27,6 @@ public interface BannedItems {
             Material.STRUCTURE_VOID,
             Material.LIGHT,
             Material.JIGSAW,
-            Material.DEBUG_STICK,
-            Material.WALL_TORCH,
-
-            // AAAA
-            Material.POTTED_ACACIA_SAPLING,
-            Material.POTTED_ALLIUM,
-            Material.POTTED_BAMBOO,
-            Material.SOUL_FIRE,
-            Material.FIRE,
-            Material.COCOA,
-            Material.POTTED_CACTUS,
-            Material.POTTED_AZALEA_BUSH,
-            Material.POTTED_AZURE_BLUET,
-            Material.POTTED_OAK_SAPLING,
-            Material.POTTED_DARK_OAK_SAPLING,
-            Material.POTTED_SPRUCE_SAPLING,
-            Material.POTTED_BIRCH_SAPLING,
-            Material.POTTED_FLOWERING_AZALEA_BUSH,
-            Material.TRIPWIRE,
-            Material.REDSTONE_WIRE
+            Material.DEBUG_STICK
     ));
 }
