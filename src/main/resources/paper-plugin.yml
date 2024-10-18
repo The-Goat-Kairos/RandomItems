@@ -1,0 +1,4 @@
+name: RandomItems
+version: '1.0'
+main: com.kairos.randomItems.RandomItems
+api-version: '1.21'
