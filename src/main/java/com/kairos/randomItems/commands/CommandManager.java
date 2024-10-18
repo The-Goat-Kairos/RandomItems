@@ -2,6 +2,7 @@ package com.kairos.randomItems.commands;
 
 import com.mojang.brigadier.Command;
 import io.papermc.paper.command.brigadier.Commands;
+import io.papermc.paper.command.brigadier.argument.ArgumentTypes;
 import io.papermc.paper.plugin.lifecycle.event.LifecycleEventManager;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import org.bukkit.plugin.Plugin;
@@ -39,6 +40,13 @@ public class CommandManager {
                     List.of()
             );
 
+            commands.register(
+                    Commands.literal("klok")
+                            .then(
+                                    Commands.argument("tijd", ArgumentTypes.time(20))
+                                            .executes(Clock::execute)
+                            ).build()
+            );
         });
     }
 }

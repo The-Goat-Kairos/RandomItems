@@ -17,6 +17,8 @@ public final class RandomItems extends JavaPlugin {
 
         CommandManager manager = new CommandManager(this); //Command Manager
         manager.registerCommands();
+
+        // Was het slim om geen globale game class te maken? Nee. Heb ik spijt? Ehhhh
     }
 
     @Override
