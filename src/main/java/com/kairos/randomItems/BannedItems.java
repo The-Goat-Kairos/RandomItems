@@ -27,6 +27,7 @@ public interface BannedItems {
             Material.STRUCTURE_VOID,
             Material.LIGHT,
             Material.JIGSAW,
-            Material.DEBUG_STICK
+            Material.DEBUG_STICK,
+            Material.WITHER_SPAWN_EGG // DIT BESTAAT?????????????? SINDS WANNEER???? dit is te OP
     ));
 }

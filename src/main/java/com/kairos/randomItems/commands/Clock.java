@@ -15,11 +15,10 @@ public class Clock {
 
     public static int execute(CommandContext<CommandSourceStack> ctx) {
         int time = ctx.getArgument("tijd", Integer.class);
-        time /= 20;
         itemGiver.setTimer(time);
         itemGiver.startEvent();
 
-        ctx.getSource().getSender().sendPlainMessage("De tijd tussen elke item is nu: " + time + ".");
+        ctx.getSource().getSender().sendPlainMessage("De tijd tussen elke item is nu: " + time / 20 + ".");
 
         return Command.SINGLE_SUCCESS;
     }
