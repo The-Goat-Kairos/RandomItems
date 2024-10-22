@@ -24,27 +24,29 @@ public class CommandManager {
         manager.registerEventHandler(LifecycleEvents.COMMANDS, event -> {
             final Commands commands = event.registrar();
             commands.register(
-                    Commands.literal("startEvent")
+                    Commands.literal("startevenement")
                             .executes(StartEvent::execute)
                             .build(),
                     "Begint het evenement!",
-                    List.of() //Aliases; not needed
+                    List.of("startevent")
             );
 
             commands.register(
-                    Commands.literal("stopEvent")
+                    Commands.literal("stopevenement")
                             .executes(StopEvent::execute)
                             .build(),
                     "Stopt het evenement.",
-                    List.of()
+                    List.of("stopevent")
             );
 
             commands.register(
                     Commands.literal("klok")
                             .then(
-                                    Commands.argument("tijd", ArgumentTypes.time(20))
+                                    Commands.argument("tijd", ArgumentTypes.time(20)) //Min tijd in Ticks (20 ticks is 1 s)
                                             .executes(Clock::execute)
-                            ).build()
+                            ).build(),
+                    "Verandert de tijd tussen elke drop.",
+                    List.of("clock")
             );
         });
     }

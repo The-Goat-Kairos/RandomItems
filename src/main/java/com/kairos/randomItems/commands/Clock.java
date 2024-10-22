@@ -18,7 +18,7 @@ public class Clock {
         itemGiver.setTimer(time);
         itemGiver.startEvent();
 
-        ctx.getSource().getSender().sendPlainMessage("De tijd tussen elke item is nu: " + time / 20 + ".");
+        ctx.getSource().getSender().sendPlainMessage("De tijd tussen elke item is nu: " + time / 20 + " seconden.");
 
         return Command.SINGLE_SUCCESS;
     }
