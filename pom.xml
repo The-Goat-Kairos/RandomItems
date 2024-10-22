@@ -41,7 +41,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <outputDirectory>/home/kairos/Downloads/Server/plugins</outputDirectory>
+                    <outputDirectory>/home/kairos/Documents/Projects/RandomItems/Server/plugins</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>

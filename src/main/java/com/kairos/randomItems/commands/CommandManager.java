@@ -9,10 +9,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+import java.util.UUID;
 
 @SuppressWarnings("UnstableApiUsage")
 public class CommandManager {
     private final JavaPlugin plugin;
+
+    private final UUID elfUUID = UUID.fromString("30ee7c7b-f49f-4ac1-ab45-a84a59f2cb1b");
+    private final UUID kairosUUID = UUID.fromString("30ee7c7b-f49f-4ac1-ab45-a84a59f2cb1b"); //b65d109b-deea-45d4-b4c1-debf10eb9146
 
     public CommandManager(JavaPlugin plugin) {
         this.plugin = plugin;
@@ -23,30 +27,34 @@ public class CommandManager {
 
         manager.registerEventHandler(LifecycleEvents.COMMANDS, event -> {
             final Commands commands = event.registrar();
+
             commands.register(
                     Commands.literal("startevenement")
+                            .requires(stuff -> stuff.getSender().getName().equals("elfelf123") || stuff.getSender().getName().equals("GoatNuisance"))
                             .executes(StartEvent::execute)
                             .build(),
                     "Begint het evenement!",
-                    List.of("startevent")
+                    List.of("")
             );
 
             commands.register(
                     Commands.literal("stopevenement")
+                            .requires(stuff -> stuff.getSender().getName().equals("elfelf123") || stuff.getSender().getName().equals("GoatNuisance"))
                             .executes(StopEvent::execute)
                             .build(),
                     "Stopt het evenement.",
-                    List.of("stopevent")
+                    List.of("")
             );
 
             commands.register(
                     Commands.literal("klok")
+                            .requires(stuff -> stuff.getSender().getName().equals("elfelf123") || stuff.getSender().getName().equals("GoatNuisance"))
                             .then(
                                     Commands.argument("tijd", ArgumentTypes.time(20)) //Min tijd in Ticks (20 ticks is 1 s)
                                             .executes(Clock::execute)
                             ).build(),
                     "Verandert de tijd tussen elke drop.",
-                    List.of("clock")
+                    List.of("")
             );
         });
     }
