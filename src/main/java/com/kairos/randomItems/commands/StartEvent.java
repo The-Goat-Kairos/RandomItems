@@ -32,9 +32,10 @@ public class StartEvent {
                 if (countdown > 0) {
                     itemGiver.plugin.getComponentLogger().debug(Component.text("Elke seconde"));
                     for (Player player : Bukkit.getOnlinePlayers()) {
-                        Component miniMessage = MiniMessage.miniMessage().deserialize("<red><b>" + countdown + "</red></b>");
-                        Title.Times times = Title.Times.times(Duration.ofMillis(10), Duration.ofMillis(800), Duration.ofMillis(180));
-                        Title countdownTitle = Title.title(miniMessage, Component.empty(), times);
+                        Component title = MiniMessage.miniMessage().deserialize("<dark_red>Evenement begint in:</dark_red>");
+                        Component subTitle = MiniMessage.miniMessage().deserialize("<red><b>" + countdown + "</b></red>");
+                        Title.Times times = Title.Times.times(Duration.ofMillis(30), Duration.ofMillis(1100), Duration.ofMillis(100));
+                        Title countdownTitle = Title.title(title, subTitle, times);
 
                         player.showTitle(countdownTitle);
                     }
