@@ -18,9 +18,14 @@ public class StopEvent {
     }
 
     public static int execute(CommandContext<CommandSourceStack> ctx) {
+        if (itemGiver.isCancelled() || itemGiver == null) {return 0;}
+
+        ctx.getSource().getLocation().getWorld().setTime(18000);
         for (Player player : Bukkit.getOnlinePlayers()) {
 //          player.sendPlainMessage("EVENEMENT STOPT!!!!!");
-            disaster.applyDisasterEffect(player);
+            for (int i = 0; i < 3; i++) {
+                disaster.applyDisasterEffect(player);
+            }
         }
         itemGiver.stopEvent();
 
