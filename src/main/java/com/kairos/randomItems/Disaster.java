@@ -1,19 +1,14 @@
 package com.kairos.randomItems;
 
-import org.bukkit.Color;
-import org.bukkit.FireworkEffect;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.data.BlockData;
-import org.bukkit.block.data.type.Fire;
-import org.bukkit.entity.Firework;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.TNTPrimed;
+import org.bukkit.*;
+import org.bukkit.entity.*;
 import org.bukkit.inventory.meta.FireworkMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Disaster {
@@ -58,7 +53,6 @@ public class Disaster {
             case LAUNCH:
                 PotionEffect potionEffect = new PotionEffect(PotionEffectType.LEVITATION, 1, 100, false);
                 player.addPotionEffect(potionEffect);
-                player.sendPlainMessage("LAUNCH");
                 break;
             case FIREWORK:
                 Firework firework = player.getWorld().spawn(location, Firework.class);
@@ -75,10 +69,39 @@ public class Disaster {
 
                 break;
             case SUMMON_MOB:
-                player.sendPlainMessage("Summon MOB");
+                Random tempRandMobs = new Random();
+                World world = player.getWorld();
+                int mobTypeInt = tempRandMobs.nextInt(4); // 4 Types of mobs
+
+                switch (mobTypeInt) {
+                    case 0:
+                        for (int i = 0; i < 5; i++) {
+                            Skeleton skeleton = world.spawn(location, Skeleton.class);
+                        }
+                        break;
+                    case 1:
+                        for (int i = 0; i < 5; i++) {
+                            Zombie zombie = world.spawn(location, Zombie.class);
+                        }
+                        break;
+                    case 2:
+                        for (int i = 0; i < 5; i++) {
+                            Creeper creeper = world.spawn(location, Creeper.class);
+                        }
+                        break;
+                    case 3:
+                        for (int i = 0; i < 5; i++) {
+                            Spider spider = world.spawn(location, Spider.class);
+                        }
+                        break;
+                }
                 break;
             case TELEPORT:
-                player.sendPlainMessage("Teleport");
+                Random tempRandTeleport = new Random();
+                List<Player> onlinePlayers = new ArrayList<>(Bukkit.getOnlinePlayers());
+                Player randomPlayer = onlinePlayers.get(tempRandTeleport.nextInt(onlinePlayers.size()));
+
+                player.teleport(randomPlayer);
                 break;
         }
     }
