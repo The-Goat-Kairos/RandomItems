@@ -15,9 +15,6 @@ import java.util.UUID;
 public class CommandManager {
     private final JavaPlugin plugin;
 
-    private final UUID elfUUID = UUID.fromString("30ee7c7b-f49f-4ac1-ab45-a84a59f2cb1b");
-    private final UUID kairosUUID = UUID.fromString("30ee7c7b-f49f-4ac1-ab45-a84a59f2cb1b"); //b65d109b-deea-45d4-b4c1-debf10eb9146
-
     public CommandManager(JavaPlugin plugin) {
         this.plugin = plugin;
     }
