@@ -27,9 +27,7 @@ public class StartEvent {
 
             @Override
             public void run() {
-                itemGiver.plugin.getComponentLogger().debug(Component.text("Oke hij runt?"));
                 if (countdown > 0) {
-                    itemGiver.plugin.getComponentLogger().debug(Component.text("Elke seconde"));
                     for (Player player : Bukkit.getOnlinePlayers()) {
                         Component title = MiniMessage.miniMessage().deserialize("<dark_red>Evenement begint in:</dark_red>");
                         Component subTitle = MiniMessage.miniMessage().deserialize("<red><b>" + countdown + "</b></red>");
@@ -40,7 +38,6 @@ public class StartEvent {
                     }
                     countdown--;
                 } else {
-                    itemGiver.plugin.getComponentLogger().debug(Component.text("Begin event"));
                     itemGiver.startEvent();
                     cancel();
                 }
