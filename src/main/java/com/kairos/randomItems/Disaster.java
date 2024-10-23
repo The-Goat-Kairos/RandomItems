@@ -42,7 +42,7 @@ public class Disaster {
             case EXPLOSION:
                 TNTPrimed tnt = location.getWorld().spawn(location, TNTPrimed.class);
                 tnt.setFuseTicks(40);
-                tnt.setYield(1f);
+                tnt.setYield(5f);
                 break;
             case LAVA:
                 Location newLocation = location.clone();
@@ -51,7 +51,7 @@ public class Disaster {
                 player.getWorld().getBlockAt(newLocation).setType(Material.LAVA);
                 break;
             case LAUNCH:
-                PotionEffect potionEffect = new PotionEffect(PotionEffectType.LEVITATION, 1, 100, false);
+                PotionEffect potionEffect = new PotionEffect(PotionEffectType.LEVITATION, 5, 100, false);
                 player.addPotionEffect(potionEffect);
                 break;
             case FIREWORK:
