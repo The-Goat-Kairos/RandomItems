@@ -16,7 +16,7 @@ public interface BannedItems {
             Material.KNOWLEDGE_BOOK,
             Material.SPAWNER,
             Material.SCULK_SHRIEKER,
-            Material.SNIFFER_EGG,
+            //Material.SNIFFER_EGG, // Deze is gewoon weird
             Material.FARMLAND,
             Material.DIRT_PATH,
             Material.COMMAND_BLOCK,
