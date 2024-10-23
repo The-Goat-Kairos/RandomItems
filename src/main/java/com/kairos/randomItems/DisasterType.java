@@ -7,5 +7,6 @@ public enum DisasterType {
     LAUNCH,
     FIREWORK,
     SUMMON_MOB,
-    TELEPORT
+    TELEPORT,
+    CHICKEN
 }

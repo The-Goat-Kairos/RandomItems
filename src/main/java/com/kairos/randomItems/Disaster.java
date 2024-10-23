@@ -1,7 +1,17 @@
 package com.kairos.randomItems;
 
+import org.bukkit.Color;
+import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.data.BlockData;
+import org.bukkit.block.data.type.Fire;
+import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.TNTPrimed;
+import org.bukkit.inventory.meta.FireworkMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Random;
@@ -18,9 +28,9 @@ public class Disaster {
 
     public void applyDisasterEffect(@NotNull Player player) {
         DisasterType randomDisaster = getRandomDisaster();
+        Location location = player.getLocation();
         switch (randomDisaster) {
             case THUNDER:
-                Location location = player.getLocation();
                 int AMOUNT_OF_STRIKES = 4;
                 Random tempRand = new Random();
 
@@ -35,16 +45,34 @@ public class Disaster {
                 }
                 break;
             case EXPLOSION:
-                player.sendPlainMessage("Explosion!!!");
+                TNTPrimed tnt = location.getWorld().spawn(location, TNTPrimed.class);
+                tnt.setFuseTicks(40);
+                tnt.setYield(1f);
                 break;
             case LAVA:
-                player.sendPlainMessage("Lava!");
+                Location newLocation = location.clone();
+                newLocation.add(0, 5, 0);
+
+                player.getWorld().getBlockAt(newLocation).setType(Material.LAVA);
                 break;
             case LAUNCH:
+                PotionEffect potionEffect = new PotionEffect(PotionEffectType.LEVITATION, 1, 100, false);
+                player.addPotionEffect(potionEffect);
                 player.sendPlainMessage("LAUNCH");
                 break;
             case FIREWORK:
-                player.sendPlainMessage("Firework");
+                Firework firework = player.getWorld().spawn(location, Firework.class);
+                FireworkMeta meta = firework.getFireworkMeta();
+                meta.addEffect(FireworkEffect.builder()
+                        .withColor(Color.RED, Color.BLUE, Color.GREEN)
+                        .withFade(Color.YELLOW)
+                        .with(FireworkEffect.Type.BURST)
+                        .withFlicker()
+                        .build()
+                );
+                meta.setPower(2);
+                firework.setFireworkMeta(meta);
+
                 break;
             case SUMMON_MOB:
                 player.sendPlainMessage("Summon MOB");
