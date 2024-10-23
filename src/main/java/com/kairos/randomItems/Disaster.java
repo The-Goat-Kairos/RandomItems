@@ -1,5 +1,6 @@
 package com.kairos.randomItems;
 
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.meta.FireworkMeta;
@@ -51,8 +52,8 @@ public class Disaster {
                 player.getWorld().getBlockAt(newLocation).setType(Material.LAVA);
                 break;
             case LAUNCH:
-                PotionEffect potionEffect = new PotionEffect(PotionEffectType.LEVITATION, 5, 100, false);
-                player.addPotionEffect(potionEffect);
+                PotionEffect levitationEffect = new PotionEffect(PotionEffectType.LEVITATION, 5, 100, false);
+                player.addPotionEffect(levitationEffect);
                 break;
             case FIREWORK:
                 Firework firework = player.getWorld().spawn(location, Firework.class);
@@ -102,6 +103,44 @@ public class Disaster {
                 Player randomPlayer = onlinePlayers.get(tempRandTeleport.nextInt(onlinePlayers.size()));
 
                 player.teleport(randomPlayer);
+                break;
+            case CHICKEN:
+                for (int i = 0; i < 30; i++) {
+                    location.getWorld().spawn(location, Chicken.class);
+                }
+                break;
+            case WARDEN:
+                location.getWorld().spawn(location, Warden.class);
+                break;
+            case PHANTOM:
+                Location phantomLocation = location.clone();
+                phantomLocation.add(0, 10, 0);
+                for (int i = 0; i < 15; i++) {
+                    location.getWorld().spawn(location, Phantom.class);
+                }
+            case RANDOMWITHER:
+                Random tempRandWitherTeleport = new Random();
+                List<Player> onlineWitherPlayers = new ArrayList<>(Bukkit.getOnlinePlayers());
+                Player randomWitherPlayer = onlineWitherPlayers.get(tempRandWitherTeleport.nextInt(onlineWitherPlayers.size()));
+
+                Wither wither = randomWitherPlayer.getWorld().spawn(randomWitherPlayer.getLocation(), Wither.class);
+                break;
+            case SNOW:
+                for (int i = 0; i < 200; i++) {
+                    Random snowRandom = new Random();
+                    Location snowLocation = location.clone();
+
+                    snowLocation.add(snowRandom.nextFloat(4)-2, 100, snowRandom.nextFloat(4)-2);
+                    Snowball snowball = snowLocation.getWorld().spawn(snowLocation, Snowball.class);
+                }
+                break;
+            case TARGET:
+                PotionEffect glowingEffect = new PotionEffect(PotionEffectType.GLOWING, 10000, 100, false);
+                player.addPotionEffect(glowingEffect);
+
+                for (Player broadcastPlayer : Bukkit.getOnlinePlayers()) {
+                    broadcastPlayer.sendMessage(MiniMessage.miniMessage().deserialize("<dark_red><b>VERMOORD" + player.getName() + "!</b></dark_red>"));
+                }
                 break;
         }
     }

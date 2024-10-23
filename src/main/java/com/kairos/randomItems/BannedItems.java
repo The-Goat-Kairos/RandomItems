@@ -28,6 +28,6 @@ public interface BannedItems {
             Material.LIGHT,
             Material.JIGSAW,
             Material.DEBUG_STICK,
-            Material.WITHER_SPAWN_EGG // DIT BESTAAT?????????????? SINDS WANNEER???? dit is te OP
+            Material.WITHER_SPAWN_EGG // DIT BESTAAT?????????????? SINDS WANNEER???? dit is te OP maar niet voor disasters :)
     ));
 }

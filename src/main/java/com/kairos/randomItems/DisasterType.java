@@ -8,5 +8,10 @@ public enum DisasterType {
     FIREWORK,
     SUMMON_MOB,
     TELEPORT,
-    CHICKEN
+    CHICKEN,
+    WARDEN,
+    PHANTOM,
+    RANDOMWITHER,
+    SNOW,
+    TARGET
 }

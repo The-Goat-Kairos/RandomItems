@@ -31,7 +31,8 @@ public class StopEvent {
     }
 
     public static int execute(CommandContext<CommandSourceStack> ctx) {
-        ctx.getSource().getLocation().getWorld().setTime(18000);
+        ctx.getSource().getLocation().getWorld().setTime(18000); // Maak het nacht en laat het regenen
+        ctx.getSource().getLocation().getWorld().setStorm(true); // WAAROM HEET REGEN ZO???
 
         for (Player player : Bukkit.getOnlinePlayers()) {
             for (int i = 0; i < NUM_OF_DISASTERS; i++) {
