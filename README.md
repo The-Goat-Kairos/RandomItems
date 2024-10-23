@@ -2,8 +2,8 @@
 
 # DIT IS ALLEN VOOR ELVEN OOGJES; ANDEREN ZIJN NIET TOEGESTAAN
 Oke dus dit is een minigame, volgens mij? 
-Het idee is dat iedereen elke minuut ofzo een willekeurige hoeveelheid van een willekeurig voorwerp krijgt.
-Er zijn ook een paar andere non-vanilla items (wel met vanilla textures) die zijn te zien door de custom naam en de gloei van enchantments. Deze items doen leuke dingen.
+Het idee is dat iedereen elke minuut ofzo een willekeurige hoeveelheid (o.d.m maximaal 8) van een willekeurig voorwerp krijgt.
+Er komen ook een paar andere non-vanilla items (wel met vanilla textures) die zijn te zien door de custom naam en de gloei van enchantments.
 
 Ik moet nog wel uitvogelen hoe ik de JAR file (de daadwerkelijke plugin die je in de server folder stopt) bij jou ga krijgen als ik hier iets update.
 Je kan het ook zelf compilen maar dat zal even kosten om uit te leggen hoe.
