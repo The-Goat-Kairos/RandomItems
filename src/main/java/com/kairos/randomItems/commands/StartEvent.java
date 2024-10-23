@@ -12,7 +12,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.time.Duration;
-import java.util.logging.Logger;
 
 @SuppressWarnings("UnstableApiUsage")
 public class StartEvent {
